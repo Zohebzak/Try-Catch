@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errors</title>
+    <script>
+        function checkFunction() {
+            let x = document.getElementById("inputId").value;
+            let elm = document.getElementById("demo");
+            try {
+                if (x == "") throw " empty"
+                if (isNaN(x)) throw "Not a number"
+                if (x < 5) throw "too low"
+                if (x > 10) throw "too high"
+
+            } catch (err) {
+
+                elm.innerHTML = "the field is " + err
+            }finally{
+                document.getElementById("inputId").value=
+                ""
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <input id="inputId" type="text">
+    <button onclick="checkFunction()">validate input</button>
+    <p id="demo"></p>
+</body>
+
+</html>
